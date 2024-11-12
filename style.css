@@ -44,4 +44,35 @@
     background-color: rgba(0, 255, 0, 0.5);
     border: 2px solid green;
   }
+
+  .ogimg::after, .dfimg::after {
+    position: absolute;
+    bottom: -35px;
+    left: 0;
+    width: 100%;
+    background: #002673;
+    color: #fff;
+    font-size: 1.5em;
+    padding: 0.5rem;
+  }
+
+  .ogimg::after {
+    content: "Original Image";
+  }
+
+  .dfimg::after {
+    content: "Different Image";
+  }
+
+  #copyright {
+    background: #002673;
+    padding: 0.25rem;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+  }
+
+  #copyright a{
+    color: #fff;
+  }
   
