@@ -1,0 +1,43 @@
+/* Confetti container to hold all the confetti particles */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Prevents the container from blocking interactions */
+    overflow: hidden; /* Ensures confetti stays within the viewport */
+    z-index: 3; /* Makes sure confetti is above most other content */
+  }
+  
+  /* Individual confetti particle style */
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    border-radius: 20%;
+    animation: fall 3.5s linear; /*fall for confetti */
+  }
+  
+  /* Keyframes for falling confetti animation */
+  @keyframes fall {
+    0% {
+      transform: translateY(0) rotate(0deg); /* Start at the top */
+      opacity: 0;
+    }
+    10% {
+      opacity: 1; /* Confetti becomes visible */
+    }
+    80% {
+      opacity: 1; /* Maintains visibility during the fall */
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg); /* Fall to the bottom and rotate */
+      opacity: 0; /* Fade out as it falls */
+    }
+  }
+
+  .confetti {
+  will-change: transform, opacity;
+}
