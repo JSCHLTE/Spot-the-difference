@@ -17,8 +17,13 @@ font-family: 'Poppins', sans-serif;
 text-decoration: none;
 background-color: #002673;
 color: #fff;
-padding: 0.75rem 1.25rem;
 border-radius: 5px;
+text-wrap: nowrap;
+padding: 0.5rem;
+}
+
+.t-wrapper {
+  text-align: center;
 }
 
 /* Wrapper for content */
