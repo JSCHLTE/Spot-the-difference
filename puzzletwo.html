@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spot The Difference - 2</title>
+    
+    <!-- Linking CSS Stylesheets -->
+    <link rel="stylesheet" href="/src/CSS/style.css">
+    <link rel="stylesheet" href="/src/CSS/confetti.css">
+
+    <!-- Adding JS Modules with Defer to improve page load -->
+    <script type="module" src="src/JAVASCRIPT/script.js" defer></script>
+    <script type="module" src="src/JAVASCRIPT/confetti.js" defer></script>
+
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Font Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Content Wrapper -->
+    <div class="wrapper">
+        <h1>Born Buffalo</h1>
+        <p>Spot the difference in the 2 photos.</p>
+        <p class="msg">0 differences found.</p>
+    </div>
+
+    <!-- Game Container -->
+    <div class="game-container">
+        <div class="image-wrapper ogimg">
+            <img src="/src/IMGS/changed.jpg" alt="Original Image" class="original-image">
+        </div>
+        
+        <div class="image-wrapper dfimg">
+            <img src="/src/IMGS/og.jpg" alt="Spot the Difference" class="different-image">
+            <div class="overlay">
+                <!-- Clickable areas for differences -->
+                <div class="clickable-area" data-difference="1" style="top: 23%; left: 0%; width: 15.3%; height: 40%; border-bottom-right-radius: 75%; border-top-right-radius: 50%;"></div>
+                <div class="clickable-area" data-difference="2" style="top: 27%; left: 42%; width: 6%; height: 6%;"></div>
+                <div class="clickable-area" data-difference="3" style="top: 16.5%; left: 63.5%; width: 13%; height: 17%; border-radius: 50%;"></div>
+                <div class="clickable-area" data-difference="4" style="top: 32%; left: 73.5%; width: 5%; height: 5%; border-radius: 50%;"></div>
+                <div class="clickable-area" data-difference="5" style="top: 43%; left: 50%; width: 13%; height: 7%; transform: rotate(50deg);"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Winner Modal -->
+    <div class="game-winner">
+        <h4>Born Buffalo</h4>
+        <p>Congratulations! You spotted all the differences.</p>
+        <button id="closeBtn">CLOSE</button>
+    </div>
+
+    <!-- Confetti container -->
+    <div class="confetti-container"></div>
+
+    <!-- Game Winner Overlay -->
+    <div class="game-winner-overlay"></div>
+
+    <!-- Spacer for better layout -->
+    <div class="spacer" style="height: 100px;"></div>
+    <div class="t-wrapper" style="margin: 1rem;">
+        <a href="/src/IMGS/changed.jpg" target="_blank" class="main-btn">View Original Image</a>
+        <div class="spacer" style="height: 25px;"></div>
+        <a href="/src/IMGS/og.jpg" target="_blank" class="main-btn">View Different Image</a>
+    </div>
+    <div class="spacer" style="height: 100px;"></div>
+
+    <!-- Footer with copyright information -->
+    <p id="copyright">Developed by Jordan, <a href="https://newyorkglobalmarketingsolutions.com/" target="_blank">New York Marketing</a>, and <a href="https://bornbuffalo.com/" target="_blank">Born Buffalo</a>.</p>
+</body>
+</html>
