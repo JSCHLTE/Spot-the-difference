@@ -165,3 +165,24 @@ img {
 #copyright a {
   color: #fff;
 }
+
+.back-to-home {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: #4a4a4a; /* Dark background */
+  color: #fff; /* White text */
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  transition: background-color 0.3s ease;
+  z-index: 1000; /* Ensures it stays on top */
+}
+
+.back-to-home:hover {
+  background-color: #6a6a6a; /* Slightly lighter on hover */
+}
