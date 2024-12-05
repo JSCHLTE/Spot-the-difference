@@ -6,53 +6,79 @@
     <meta name="description" content="Spot the Difference game with 5 fun and challenging levels. Test your observation skills!">
     <meta name="keywords" content="Spot the Difference, Puzzle Games, Observation Challenge">
     <meta name="author" content="Your Name or Website">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self';">
     <title>Spot the Difference</title>
-    <link rel="stylesheet" href="./src/CSS/home.css">
+    <link rel="stylesheet" href="src/CSS/home.css">
+    <script defer src="src/JAVASCRIPT/completed.js"></script>
 </head>
 <body>
     <div class="container">
         <header class="header">
             <h1>Spot the 5 Differences</h1>
             <p>Test your observation skills across various challenges!</p>
+            <!-- <div class="button">
+                <button id="claimBtn">Claim Prize</button>
+                <button id="resetBtn">Reset Puzzle</button>
+            </div> -->
         </header>
         <div class="grid" role="list">
-            <a href="./game-1.html" class="grid-item" role="listitem">
-                <img src="./src/IMGS/game-1-og.webp" alt="Game 1">
+            <a href="game-1.html" class="grid-item" role="listitem" data-game-id="game-1" data-game-secret="B">
+                    <img src="src/IMGS/game-1-og.webp" alt="Game 1">
                 <div class="item-info">
                     <h2>MVP Allen</h2>
                     <p>Spot the difference between these two photos!</p>
                 </div>
             </a>
-            <a href="./game-2.html" class="grid-item" role="listitem">
-                <img src="./src/IMGS/game-2-og.jpg" alt="Game 2">
+            <a href="game-2.html" class="grid-item" role="listitem" data-game-id="game-2" data-game-secret="i">
+                <img src="src/IMGS/game-2-og.jpg" alt="Game 2">
                 <div class="item-info">
                     <h2>Seasonal Sweets</h2>
                     <p>Spot the difference between these two photos!</p>
                 </div>
             </a>
-            <a href="./game-3.html" class="grid-item" role="listitem">
-                <img src="./src/IMGS/game-3-og.jpg" alt="Game 3">
+            <a href="game-3.html" class="grid-item" role="listitem" data-game-id="game-3" data-game-secret="l">
+                <img src="src/IMGS/game-3-og.jpg" alt="Game 3">
                 <div class="item-info">
                     <h2>Cranberry Chaos</h2>
                     <p>Spot the difference between these two photos!</p>
                 </div>
             </a>
-            <a href="./game-4.html" class="grid-item" role="listitem">
-                <img src="./src/IMGS/game-4-og.jpg" alt="Game 4">
+            <a href="game-4.html" class="grid-item" role="listitem" data-game-id="game-4" data-game-secret="l">
+                <img src="src/IMGS/game-4-og.jpg" alt="Game 4">
                 <div class="item-info">
                     <h2>Goin' Nuts</h2>
                     <p>Spot the difference between these two photos!</p>
                 </div>
             </a>
-            <a href="./game-5.html" class="grid-item" role="listitem">
-                <img src="./src/IMGS/game-5-og.jpg" alt="Game 5">
+            <a href="game-5.html" class="grid-item" role="listitem" data-game-id="game-5" data-game-secret="s">
+                <img src="src/IMGS/game-5-og.jpg" alt="Game 5">
                 <div class="item-info">
                     <h2>Fruit Party</h2>
                     <p>Spot the difference between these two photos!</p>
                 </div>
             </a>
         </div>
+        <div class="popup-overlay"></div>
+        <div class="codePopup">
+            <h4>Claim Prize</h4>
+            <p>Spotted all the differences? Enter the special code for a special prize.</p>
+            <form id="secretForm">
+                <input type="text" placeholder="Enter secret code..." id="secretInput">
+                <button type="submit">Verify</button>
+                <button>Clear</button>
+            </form>
+            <button id="closeBtn">CLOSE</button>
+        </div>
+        <div class="codePopup">
+            <h4>Sucess</h4>
+            <p>Use this code: "" at <a href="#">New York Marketing</a> and get 100% off our signs.</p>
+            <form id="secretForm">
+                <input type="text" placeholder="Enter secret code..." id="secretInput">
+                <button type="submit">Verify</button>
+                <button>Clear</button>
+            </form>
+            <button id="closeBtn">CLOSE</button>
+        </div>
     </div>
+
 </body>
 </html>

@@ -1,11 +1,11 @@
 import { onUserWin } from './confetti.js';
 
 const msg = document.querySelector('.msg');
-const gameWinner = document.querySelector('.game-winner');
 const gameWinnerOverlay = document.querySelector('.game-winner-overlay');
-const closeBtn = document.querySelector('#closeBtn');
 const overlay = document.querySelector('.overlay');
 const timerElement = document.getElementById('timer');
+const path = window.location.pathname; // E.g., '/play/game1.html'
+const gameIdURL = path.substring(path.lastIndexOf('/') + 1, path.lastIndexOf('.')); // Extract 'game1'
 
 let counter = 0; // Tracks differences found
 let clicks = 0; // Tracks user clicks
@@ -66,15 +66,22 @@ function checkWin() {
   if (counter === max) {
     clearInterval(timerInterval); // Stop the timer on win
     onUserWin();
-    gameWinner.classList.add('winner-active');
+    const gameWinnerWrapper = document.createElement(`div`);
+    gameWinnerWrapper.classList.add(`game-winner`);
+    gameWinnerWrapper.innerHTML = `
+        <h4>Born Buffalo</h4>
+        <p>Congratulations! You spotted all the differences.</p>
+        <button id="resetBtn">RESET</button>
+        <button id="closeBtn">CLOSE</button>`
+    document.body.appendChild(gameWinnerWrapper);
     gameWinnerOverlay.classList.add('winner-active');
+    localStorage.setItem(gameIdURL, "Completed");
+    let resetBtn = gameWinnerWrapper.querySelector('#resetBtn');
+    resetBtn.addEventListener("click", () => gameReset(gameWinnerWrapper));
   }
 }
 
-// Resets the game state when the close button is clicked
-closeBtn.addEventListener('click', gameReset);
-
-function gameReset() {
+function gameReset(arg) {
   // Reset all game variables
   counter = 0;
   clicks = 0;
@@ -87,7 +94,7 @@ function gameReset() {
   });
 
   // Reset UI and restart timer
-  gameWinner.classList.remove('winner-active');
+  arg.remove();
   gameWinnerOverlay.classList.remove('winner-active');
   startTimer(90); // Restart the timer for x minutes
 }

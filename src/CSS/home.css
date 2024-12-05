@@ -15,7 +15,7 @@ body {
 .container {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 50px auto;
     padding: 20px;
     text-align: center;
 }
@@ -40,6 +40,7 @@ body {
 }
 
 .grid-item {
+    position: relative;
     text-decoration: none;
     color: inherit;
     border-radius: 10px;
@@ -74,6 +75,55 @@ body {
     font-size: 1rem;
     color: #cccccc;
 } 
+
+.completed-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-align: left !important;
+    background: #008000;
+    padding: 0.25rem 0.5rem;
+    border-radius: 50px;
+    margin-bottom: 15px;
+}
+
+.secret-letter {
+    display: inline-block;
+    background: #002673;
+    padding: 0.25rem 0.5rem;
+    border-radius: 50px;
+    margin-bottom: 15px;
+}
+
+.codePopup {
+    background: #002673;
+    color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    z-index: 4;
+    border-radius: 20px;
+    display: none;
+    z-index: 91;
+}
+
+.codePopup h4 {
+    margin-bottom: 25px;
+}
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+    display: none;
+}
+
+.popup-active {
+    display: block;
+}
 
 /* Responsive Fix for Mobile */
 @media (max-width: 768px) {
