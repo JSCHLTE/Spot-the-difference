@@ -3,39 +3,49 @@ const path = window.location.pathname;
 const gameIdURL = path.substring(path.lastIndexOf('/') + 1, path.lastIndexOf('.'));
 const resetBtn = document.getElementById("resetBtn");
 const claimBtn = document.getElementById("claimBtn");
-const closeBtn = document.getElementById("closeBtn");
-const codePopup = document.querySelector(".codePopup");
+const verifyPopupClose = document.querySelector(".verify-popup-close");
+const verifyPopup = document.querySelector(".verify-popup");
 const popupOverlay = document.querySelector(".popup-overlay");
-const secretInput = document.getElementById("secretInput");
-const secretForm = document.getElementById("secretForm");
+const verifyForm = document.getElementById("verify-popup-form");
+const verifyInput = document.getElementById("verify-popup-input");
 
-const secret = "bills"
+const final = "YmlsbHM=";
+const finalatob = atob(final);
 
 resetBtn.addEventListener("click", ()=> {
-    localStorage.clear();
-    window.location.reload();
+    let yesno = confirm("Are you sure you want to reset all your progress?")
+    if(yesno) {
+        resetLS();
+    }
 });
 
 claimBtn.addEventListener("click", ()=> {
-    codePopup.classList.add("popup-active");
+    verifyPopup.classList.add("active");
     popupOverlay.classList.add("popup-active");
 });
 
-closeBtn.addEventListener("click", closeOverlay);
+verifyPopupClose.addEventListener("click", closeOverlay)
 popupOverlay.addEventListener("click", closeOverlay);
 
-secretForm.addEventListener("submit", (e)=> {
+verifyForm.addEventListener("submit", (e)=> {
     e.preventDefault();
-    let adjInput = secretInput.value.toLowerCase();
-    if(adjInput == secret) {
-        alert('Working')
+    let adjInput = verifyInput.value.toLowerCase();
+    if(adjInput == finalatob) {
+        alert('You solved the secret puzzle!')
     } else {
-        alert(`${adjInput} is not correct.`)
+        alert(`${adjInput} is not correct.`);
+        verifyInput.value = '';
+        verifyInput.focus();
     }
-})
+});
+
+function resetLS() {
+    localStorage.clear();
+    window.location.reload();
+}
 
 function closeOverlay() {
-    codePopup.classList.remove("popup-active");
+    verifyPopup.classList.remove("active");
     popupOverlay.classList.remove("popup-active");
 }
 

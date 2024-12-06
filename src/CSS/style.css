@@ -7,39 +7,135 @@
 
 /* Basic body styling */
 body {
-background: #1c1c1c;
-color: #fff;
-font-family: 'Poppins', sans-serif;
+  background: #101010; 
+  color: #fff;
+  font-family: 'Poppins', sans-serif; /* Font from the second file */
 }
 
-/* Button Styling */
-.main-btn {
-text-decoration: none;
-background-color: #002673;
-color: #fff;
-border-radius: 5px;
-text-wrap: nowrap;
-padding: 0.5rem;
+.wrapper {
+  text-align: center;
+  margin: 50px 0;
 }
 
 .t-wrapper {
   text-align: center;
 }
 
-/* Wrapper for content */
-.wrapper {
+.timer {
+  font-size: 20pt;
+  margin: 50px 0;
+}
+
+/* Container and Layout */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
   text-align: center;
-  margin: 2rem 0;
 }
 
-.wrapper h1 {
-margin: 2rem 0;
-font-size: 2.75rem;
+header {
+  margin-bottom: 30px;
 }
 
-.wrapper p {
-font-size: 1.25rem;
-margin-bottom: 2rem;
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: #aaaaaa;
+  margin-bottom: 30px;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr)); /* Reduce the minimum width */
+  gap: 20px;
+  justify-content: center; /* Ensure centering */
+}
+
+.grid-item {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #1e1e1e;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #333;
+}
+
+.item-info {
+  padding: 15px;
+  text-align: left;
+}
+
+.item-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.item-info p {
+  font-size: 1rem;
+  color: #cccccc;
+} 
+
+/* Button Styling */
+.main-btn {
+  text-decoration: none;
+  background-color: #002673;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+/* Completed and Secret Letter Tag */
+.completed-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  text-align: left !important;
+  background: #008000;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50px;
+  margin-bottom: 15px;
+}
+
+.secret-letter {
+  display: inline-block;
+  background: #002673;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50px;
+  margin-bottom: 15px;
+}
+
+/* Popup and Overlay Styles */
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+  display: none;
+}
+
+.popup-active {
+  display: block;
 }
 
 /* Game container to hold the images */
@@ -59,7 +155,6 @@ margin-bottom: 2rem;
   margin: 10px;
 }
 
-/* Ensuring images scale correctly */
 img {
   width: 100%;
   height: auto;
@@ -75,7 +170,6 @@ img {
   cursor: pointer;
 }
 
-/* Clickable areas for differences */
 .clickable-area {
   position: absolute;
 }
@@ -98,7 +192,6 @@ img {
   padding: 0.5rem;
 }
 
-/* Specific labels for original and different images */
 .ogimg::after {
   content: "Original Image";
 }
@@ -136,7 +229,6 @@ img {
   left: 0;
 }
 
-/* When the winner modal and overlay are active */
 .winner-active {
   display: block;
 }
@@ -165,6 +257,7 @@ img {
   color: #fff;
 }
 
+/* Back to Home Button */
 .back-to-home {
   position: fixed;
   top: 10px;
@@ -185,3 +278,282 @@ img {
 .back-to-home:hover {
   background-color: #6a6a6a; /* Slightly lighter on hover */
 }
+
+/* Responsive Fix for Mobile */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; /* Single-column layout for smaller screens */
+    gap: 15px; /* Smaller gap */
+  }
+
+  .grid-item {
+    width: 90%; /* Limit width to prevent oversized items */
+    margin: 0 auto; /* Center the items */
+  }
+
+  .item-info h2 {
+    font-size: 1.2rem; /* Adjust font size for mobile */
+  }
+
+  .item-info p {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+/* Code Popup Container */
+.codePopup {
+  background: #002673;
+  color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  z-index: 999;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  display: none; /* Hidden by default, show with a class toggle */
+}
+
+.codePopup h4 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.codePopup p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #b3b3b3;
+}
+
+/* Close Button (X) */
+.close-btn {
+  background: transparent;
+  color: #fff;
+  font-size: 2rem;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #ff3b3b; /* Red on hover */
+}
+
+/* Form Styling */
+.secretForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.secretInput {
+  width: 80%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  color: #333;
+  background-color: #f1f1f1;
+  transition: 0.3s ease;
+}
+
+.secretInput:focus {
+  background-color: #e2e2e2;
+  border: 1px solid #008000;
+}
+
+/* Buttons */
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button[type="submit"] {
+  background-color: #fff;
+  color: #000;
+}
+
+button[type="submit"]:hover {
+  background-color: #aeaeae;
+}
+
+button.clearBtn {
+  background-color: #ff3b3b;
+  color: #fff;
+}
+
+button.clearBtn:hover {
+  background-color: #e00000;
+}
+
+/* Animation for popup showing */
+.popup-active {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+/*Verify popup - this is when they click on solve secret*/
+
+/* Container for the popup */
+.verify-popup {
+  background-color: #2a2a2a;
+  color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Show popup when active */
+.verify-popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Close button (X) */
+.verify-popup-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.verify-popup-close:hover {
+  color: #f44336;
+}
+
+/* Title styling */
+.verify-popup-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Description paragraph styling */
+.verify-popup-desc {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #bbb;
+}
+
+/* Form styling */
+#verify-popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Input styling */
+#verify-popup-input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+#verify-popup-input:focus {
+  border-color: #008CBA;
+  outline: none;
+}
+
+/* Submit button styling */
+#verify-popup-form button {
+  padding: 0.75rem;
+  background-color: #008CBA;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#verify-popup-form button:hover {
+  background-color: #006f8c;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .verify-popup {
+      width: 85%;
+  }
+}
+
+
+/*end verify popup*/
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+  display: none;
+}
+
+.popup-active {
+  display: block;
+}
+
+/* Responsive Fix for Mobile */
+@media (max-width: 768px) {
+  .grid {
+      grid-template-columns: 1fr; /* Single-column layout for smaller screens */
+      gap: 15px; /* Smaller gap */
+  }
+
+  .grid-item {
+      width: 90%; /* Limit width to prevent oversized items */
+      margin: 0 auto; /* Center the items */
+  }
+
+  .item-info h2 {
+      font-size: 1.2rem; /* Adjust font size for mobile */
+  }
+
+  .item-info p {
+      font-size: 0.9rem;
+  }
+}
+

@@ -78,7 +78,13 @@ function checkWin() {
     localStorage.setItem(gameIdURL, "Completed");
     let resetBtn = gameWinnerWrapper.querySelector('#resetBtn');
     resetBtn.addEventListener("click", () => gameReset(gameWinnerWrapper));
+    closeBtn.addEventListener("click", () => removeWinner(gameWinnerWrapper));
   }
+}
+
+function removeWinner(arg) {
+  arg.remove();
+  gameWinnerOverlay.classList.remove('winner-active');
 }
 
 function gameReset(arg) {
